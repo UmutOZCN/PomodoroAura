@@ -46,13 +46,13 @@ Use PomodoroAura instantly — no installation required:
 |-----------|-------------|--------------------|
 | ![Settings](./assets/screens/settings.png) | ![Statistics](./assets/screens/statistics.png) | ![Themes](./assets/screens/themes.png) |
 
-> Screenshots are stored under `assets/screens/`.
-
 ---
 
 ## 📬 Contact
 
-For any questions or feedback, visit the official website:  
+For any questions or feedback, you can reach out via:  
+📧 **umutozcandev@gmail.com**  
+or visit the official website:  
 👉 **[https://pomodoroaura.vercel.app/](https://pomodoroaura.vercel.app/)**  
 
 Developed by [@UmutOZCN](https://github.com/UmutOZCN)
