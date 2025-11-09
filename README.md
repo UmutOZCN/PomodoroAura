@@ -1,75 +1,89 @@
-# PomodoroAura
-> Focus, with breathing space.
+PomodoroAura ⏱️
 
-![PomodoroAura Screenshot]((https://imgur.com/a/BNJ5F9W))
-![PomodoroAura Screenshot](https://imgur.com/a/hIY7cwp)
-*(Remember to replace this with a real screenshot URL from your live app. You can upload one to [imgur.com](https://imgur.com/).)*
+A clean and fully customizable Pomodoro timer designed to help you stay productive and balanced.
+PomodoroAura lets you set your own focus, short break, and long break durations, as well as define how many focus sessions are needed before a long break begins.
 
----
+🌐 Live Demo
 
-## 🌐 Live Application
+Experience PomodoroAura instantly — no installation required!
+👉 Open PomodoroAura on Vercel
 
-This application is fully deployed and available for you to use right now.
+🌟 Features
 
-**Visit the live site:**
-### [https://pomodoroaura.vercel.app/](https://pomodoroaura.vercel.app/)
+⏳ Fully customizable durations for work, short break, and long break
 
----
-##🌟 Features
+🔁 Adjustable session count — choose how many Pomodoros trigger a long break
 
-*⏳ Fully customizable durations for work, short break, and long break
-*🔁 Adjustable session count — choose how many Pomodoros trigger a long break
-*🧠 Automatic transitions between focus and break periods
-*🛠️ Pause, Resume, and Reset controls
-*💾 Persistent settings stored locally in the browser
-*🔔 Optional sound & desktop notifications
-*🌙 Light / Dark theme
+🧠 Automatic transitions between focus and break periods
 
----
+🛠️ Pause, Resume, and Reset controls
 
-## ✨ About The Project
+💾 Persistent settings stored locally in the browser
 
-**PomodoroAura** is a minimalist Pomodoro® timer web application designed with a calm, non-distracting, and aesthetic interface. Built on the philosophy of "spa-like productivity," it helps users effectively manage their work and break periods without disrupting their flow.
+🔔 Optional sound and desktop notifications
 
-The application is a robust Single Page Application (SPA) built with React, Vite, and TypeScript. It intelligently persists the complete user experience—including all custom settings, theme preferences, and even the timer's current state—in the browser's `localStorage`.
+🌙 Light / Dark theme
 
----
+📊 (Optional) Focus statistics and session tracking
 
-## 📋 Features
+🧭 How It Works
 
-* **Full Pomodoro Cycle:** Configurable durations for Focus, Short Break, and Long Break.
-* **Persistent State:** The timer remembers its state (remaining seconds, current mode, active status) even after the browser is refreshed or closed.
-* **"Spa-like" UI:** A minimal, low-contrast, and soft color palette with gentle micro-animations.
-* **Advanced Theme Support:** A one-click toggle between **Light**, **Dark**, and **System** (auto-detect) themes, with all preferences saved.
-* **Animated Progress Ring:** A circular SVG ring that visually depletes as time passes.
-* **Non-Interruptive Modals:** Both the **Settings** and **Statistics** panels open as modals, allowing the timer to continue running in the background without being reset.
-* **Audio & Desktop Notifications:** A soft chime and a desktop notification (if permission is granted) signal the end of each session.
-* **Fully Responsive Design:** A flawless experience on all devices, from large desktops down to 360px mobile screens.
-* **Persistent Statistics:** Tracks and saves completed focus sessions and total focus time, broken down by "Today" and "Total."
-* **Quick-Set Presets:** One-click presets for common timings (e.g., 25/5, 50/10).
+Set your timer: Choose custom durations for each phase.
 
----
+Choose session count: Define how many work sessions you want before a long break.
 
-## 🛠️ Tech Stack
+Start and focus: PomodoroAura automatically switches between focus and break modes.
 
-* **Framework:** React 18
-* **Build Tool:** Vite
-* **Language:** TypeScript
-* **State Management:** React Hooks (`useState`, `useEffect`, `useRef`)
-* **Persistence:** A custom `useLocalStorage` hook to save and retrieve state.
-* **Styling:** Modern CSS (CSS Variables, Grid, Flexbox, Media Queries)
-* **Icons:** Lucide React
+Relax & repeat: Maintain a healthy and efficient work rhythm.
 
----
+🖼️ Screenshots
+Focus	Short Break	Long Break
 
-## 🏛️ Key Architecture Decisions
+	
+	
 
-* **Modal-Based UI:** Instead of using a router (`react-router-dom`), the application uses a modal-based architecture. This was a key decision to **prevent the timer from resetting** when the user opens the Settings or Statistics panels, ensuring an uninterrupted flow.
-* **Custom `useLocalStorage` Hook:** All persistent state (user settings, theme, timer status) is managed by a single, reusable custom hook (`useLocalStorage.ts`). This hook automatically serializes state to `localStorage` on change and deserializes it on load.
-* **Real-Time Accuracy:** The timer logic relies on "epoch math" (comparing `Date.now()` timestamps) rather than `setInterval` ticks alone. This ensures the timer remains perfectly accurate even if the browser tab is backgrounded or throttled.
+Place your screenshots under assets/screens/.
 
----
+🔧 Configuration
 
-## 🔑 License
+Timer Settings: Freely adjust all durations and the number of sessions.
 
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+Notifications: Requires browser permission for alerts and sounds.
+
+Persistence: Settings are saved locally using localStorage.
+
+Sounds: You can add your own .mp3 or .wav files in /public/sounds/.
+
+🗺️ Roadmap
+
+ To-Do list integration
+
+ Daily & weekly productivity analytics
+
+ Keyboard shortcuts (e.g. Space: Start/Pause, R: Reset)
+
+ PWA & offline mode support
+
+ Additional themes & sound packs
+
+🤝 Contributing
+
+Contributions are always welcome!
+
+Fork this repository
+
+Create a new branch: feat/your-feature-name
+
+Commit and test your changes
+
+Open a Pull Request with a clear description and screenshots
+
+📄 License
+
+MIT License © 2025 — PomodoroAura Contributors
+
+📬 Contact
+
+Repository Owner: @UmutOZCN
+
+Project: PomodoroAura – Customizable Pomodoro Timer
