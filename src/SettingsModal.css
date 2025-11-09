@@ -1,6 +1,3 @@
-/* --- ADIM 1: TEMEL MODAL STİLLERİ --- */
-/* (StatsModal.css ile aynı) */
-
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -41,29 +38,22 @@
 .modal-header h2 { font-size: 1.25rem; margin: 0; }
 .modal-header .icon-button { background-color: transparent; }
 
-
-/* --- ADIM 2: AYARLAR FORMU STİLLERİ --- */
-
 .settings-form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-/* GÜNCELLEME: İsteğiniz üzerine RESPONSIVE HALE GETİRİLDİ */
 .form-group {
     border: none;
     padding: 0;
     margin: 0;
     display: grid;
-    /* Varsayılan (Mobil): Tek sütun (Etiket üstte, Input altta) */
     gap: 0.5rem; 
 }
 
-/* Tablet (500px) ve üzeri ekranlarda */
 @media (min-width: 500px) {
     .form-group {
-        /* İki sütunlu (yan yana) görünüme geç */
         grid-template-columns: 1fr 1fr; 
         gap: 1rem; 
         align-items: center; 
@@ -76,7 +66,7 @@
     font-size: 1rem;
     color: var(--text);
     margin-bottom: 1rem;
-    grid-column: 1 / -1; /* İki sütunluyken başlığın tamamını kapla */
+    grid-column: 1 / -1; 
 }
 
 .settings-form label {
@@ -105,10 +95,9 @@
     width: 100%;
 }
 
-/* --- ADIM 3: TEMA SEÇİCİ STİLLERİ --- */
+
 
 .form-group.theme-selector {
-    /* Tema seçici HER ZAMAN tek sütunlu olmalı */
     grid-template-columns: 1fr;
     gap: 0.5rem;
 }
@@ -145,7 +134,7 @@
     display: none;
 }
 
-/* --- ADIM 4: BİLDİRİM DÜĞMESİ STİLLERİ --- */
+
 .form-group.notification-settings {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -155,7 +144,6 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    /* 'preset-button' stilini (App.css'ten) alır */
 }
 .notification-settings .preset-button:disabled {
     background-color: var(--surface-2);

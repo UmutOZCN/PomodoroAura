@@ -1,12 +1,3 @@
-/* Bu dosya, hem SettingsModal.css'teki
-  .modal-backdrop, .modal-content, .modal-header
-  stillerini, hem de StatsPage.css'teki
-  .stats-container, .stats-grid, .stat-card
-  stillerini içerir.
-  
-  (SettingsModal.css'ten kopyaladık)
-*/
-
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -47,9 +38,6 @@
 .modal-header h2 { font-size: 1.25rem; margin: 0; }
 .modal-header .icon-button { background-color: transparent; }
 
-
-/* --- İstatistik Stilleri (Eski StatsPage.css'ten) --- */
-
 .stats-container {
     display: flex;
     flex-direction: column;
@@ -62,18 +50,14 @@
     border: 2px dashed var(--surface-2); 
     border-radius: var(--radius-soft);
 }
-/* GÜNCELLEME: "Mobile First" (Önce Mobil) yaklaşımı */
 .stats-grid { 
     display: grid; 
-    /* Mobilde varsayılan: Tek sütun (kartlar alt alta) */
     grid-template-columns: 1fr; 
     gap: 1rem; 
 }
 
-/* Tablet (500px) ve üzeri ekranlarda */
 @media (min-width: 500px) {
     .stats-grid {
-        /* İki sütunlu (yan yana) görünüme geç */
         grid-template-columns: 1fr 1fr;
     }
 }

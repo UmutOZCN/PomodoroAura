@@ -20,7 +20,6 @@ const isSameDay = (d1: Date, d2: Date) => {
 };
 
 function App() {
-  // --- STATE'LER ---
   const [theme, setTheme] = useLocalStorage<Theme>('promo-aura-theme', 'system');
   const [settings, setSettings] = useLocalStorage<Settings>('promo-aura-settings', DEFAULT_SETTINGS);
   const [sessionHistory, setSessionHistory] = useLocalStorage<SessionLogEntry[]>('promo-aura-session-history', []);
@@ -31,13 +30,9 @@ function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isStatsOpen, setIsStatsOpen] = useState(false); 
   const [notificationPermission, setNotificationPermission] = useState(Notification.permission);
-  
-  // --- REFS ---
   const intervalRef = useRef<number | null>(null);
   const targetTimeRef = useRef<number>(0); 
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  // --- YARDIMCI FONKSİYONLAR ---
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const remainingSecs = seconds % 60;
@@ -62,7 +57,6 @@ function App() {
 
   const requestNotificationPermission = async () => {
     if (!('Notification' in window)) { 
-      // GÜNCELLEME: İngilizce
       alert("This browser does not support desktop notifications."); 
       return; 
     }
@@ -96,7 +90,6 @@ function App() {
     }
   };
 
-  // --- USE EFFECTS ---
   useEffect(() => { 
     if (isActive) {
       targetTimeRef.current = Date.now() + remainingSeconds * 1000;
@@ -104,7 +97,6 @@ function App() {
         const now = Date.now();
         const newRemaining = Math.max(0, Math.round((targetTimeRef.current - now) / 1000));
         setRemainingSeconds(newRemaining);
-        // GÜNCELLEME: Başlık (mode etiketi buradan alınır, aşağıda tanımlanır)
         document.title = `${formatTime(newRemaining)} - ${modeLabel}`; 
         
         if (newRemaining <= 0) {
@@ -114,13 +106,11 @@ function App() {
           if (mode === 'work') {
             const newLogEntry: SessionLogEntry = { timestamp: Date.now(), duration: settings.work };
             setSessionHistory(prevHistory => [...prevHistory, newLogEntry]);
-            // GÜNCELLEME: İngilizce
             sendNotification("Focus session complete! Time for a short break."); 
             const newSessionCount = sessionHistory.length + 1; 
             if (newSessionCount % settings.longBreakInterval === 0) resetTimer('longBreak');
             else resetTimer('shortBreak');
           } else {
-            // GÜNCELLEME: İngilizce
             sendNotification("Break's over! Time to focus again."); 
             resetTimer('work');
           }
@@ -129,7 +119,6 @@ function App() {
     } else {
       if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
       if (remainingSeconds > 0) { 
-        // GÜNCELLEME: İngilizce
         document.title = "PomodoroAura: Paused"; 
       }
     }
@@ -151,7 +140,6 @@ function App() {
     }
   }, [theme]);
   
-  // --- KONTROL & HESAPLAMA ---
   const toggleSound = () => setIsMuted(!isMuted);
   const totalDuration = mode === 'work' ? settings.work : mode === 'shortBreak' ? settings.shortBreak : settings.longBreak;
   const percentRemaining = (remainingSeconds / totalDuration) * 100;
@@ -161,7 +149,7 @@ function App() {
   const todayCompletedCount = todaySessions.length;
   const todayTotalMinutes = Math.round(todaySessions.reduce((sum, entry) => sum + entry.duration, 0) / 60);
 
-  // GÜNCELLEME: Tüm metinler İngilizce
+
   let motivationalLine = "This is your only task right now.";
   let modeLabel = "Focus";
   if (mode === 'shortBreak') { 
@@ -177,27 +165,22 @@ function App() {
   return (
     <>
       <div className="sr-only" aria-live="polite" id="aria-live-announcer">
-        {/* GÜNCELLEME: İngilizce */}
         {isActive ? `${modeLabel} started` : `${modeLabel} paused`}
       </div>
 
       <div id="app-wrapper">
         <header className="app-header">
-          {/* GÜNCELLEME: İngilizce aria-label */}
           <a href="/" className="logo-container" aria-label="PomodoroAura Home">
             <img src="/logo.svg" alt="PomodoroAura Logo" className="logo" />
             <h1>PomodoroAura</h1>
           </a>
           <nav className="controls">
-            {/* GÜNCELLEME: İngilizce aria-label */}
             <button className="icon-button" aria-label="Show Statistics" onClick={() => setIsStatsOpen(true)}>
               <BarChart3 size={20} />
             </button>
-            {/* GÜNCELLEME: İngilizce aria-label */}
             <button className="icon-button" onClick={toggleSound} aria-label={isMuted ? "Unmute" : "Mute"}>
               {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
             </button>
-            {/* GÜNCELLEME: İngilizce aria-label */}
             <button className="icon-button" id="open-settings" aria-label="Open Settings" onClick={() => setIsSettingsOpen(true)}>
               <SettingsIcon size={20} /> 
             </button>
@@ -208,7 +191,6 @@ function App() {
           <div className="mode-label">{modeLabel}</div>
           <div className="timer-ring"><CircularProgress percent={percentRemaining} /><div className="timer-display" id="timer-display">{formatTime(remainingSeconds)}</div></div>
           <button className="primary-button" id="start-pause-button" onClick={handleStartPause}>
-            {/* GÜNCELLEME: İngilizce */}
             {isActive ? <><Pause size={20} /> <span>Pause</span></> : <><Play size={20} /> <span>Start</span></>}
           </button>
           <p className="motivational-line">{motivationalLine}</p>
@@ -216,14 +198,12 @@ function App() {
 
         <aside className="quick-panel">
           <div className="presets">
-            {/* GÜNCELLEME: İngilizce */}
             <h3>Presets</h3>
             <button className="preset-button" onClick={() => applyPreset(25, 5)}>25 / 5</button>
             <button className="preset-button" onClick={() => applyPreset(50, 10)}>50 / 10</button>
             <button className="preset-button" onClick={() => applyPreset(90, 15)}>90 / 15</button>
           </div>
           <div className="session-stats">
-            {/* GÜNCELLEME: İngilizce */}
             <h3>Today's Sessions</h3>
             <p>Completed: <span id="completed-count">{todayCompletedCount}</span></p>
             <p>Total Time: <span id="total-time">{todayTotalMinutes} min</span></p> 
@@ -231,10 +211,8 @@ function App() {
         </aside>
       </div>
 
-      {/* Ses Elementi */}
       <audio ref={audioRef} src="/sounds/chime.mp3" preload="auto" />
       
-      {/* Koşullu Modallar */}
       {isSettingsOpen && (
         <SettingsModal 
           currentSettings={settings} 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Sun, Moon, Laptop, Bell, BellOff } from 'lucide-react';
-import type { Settings, Theme } from './types'; // 'Theme'i buraya da alıyoruz
+import type { Settings, Theme } from './types'; 
 import './SettingsModal.css';
 
 type Props = {
@@ -38,7 +38,6 @@ export const SettingsModal: React.FC<Props> = ({
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         
         <header className="modal-header">
-          {/* GÜNCELLEME: İngilizce */}
           <h2>Settings</h2>
           <button className="icon-button" onClick={onClose} aria-label="Close settings">
             <X size={24} />
@@ -48,7 +47,6 @@ export const SettingsModal: React.FC<Props> = ({
         <form className="settings-form" onSubmit={handleSubmit}>
           
           <fieldset className="form-group theme-selector">
-            {/* GÜNCELLEME: İngilizce */}
             <legend>Theme</legend>
             <div className="radio-group">
               <label>
@@ -67,7 +65,6 @@ export const SettingsModal: React.FC<Props> = ({
           </fieldset>
           
           <fieldset className="form-group">
-            {/* GÜNCELLEME: İngilizce */}
             <legend>Timers (Minutes)</legend>
             <label htmlFor="work">Focus</label>
             <input id="work" name="work" type="number" min="1" value={formState.work / 60} onChange={(e) => setFormState({ ...formState, work: (e.target.valueAsNumber || 1) * 60 })} />
@@ -78,14 +75,12 @@ export const SettingsModal: React.FC<Props> = ({
           </fieldset>
           
           <fieldset className="form-group">
-            {/* GÜNCELLEME: İngilizce */}
             <legend>Cycle</legend>
             <label htmlFor="longBreakInterval">Long Break Interval</label>
             <input id="longBreakInterval" name="longBreakInterval" type="number" min="1" max="12" value={formState.longBreakInterval} onChange={handleChange} />
           </fieldset>
 
           <fieldset className="form-group notification-settings">
-            {/* GÜNCELLEME: İngilizce */}
             <legend>Notifications</legend>
             <button 
               type="button"
@@ -105,7 +100,6 @@ export const SettingsModal: React.FC<Props> = ({
             )}
           </fieldset>
 
-          {/* GÜNCELLEME: İngilizce */}
           <button type="submit" className="primary-button save-button">
             Save
           </button>

@@ -18,7 +18,6 @@ export const StatsModal: React.FC<Props> = ({ onClose }) => {
   
   const [sessionHistory] = useLocalStorage<SessionLogEntry[]>('promo-aura-session-history', []);
   
-  // --- İstatistikleri Hesapla ---
   const totalCompletedCount = sessionHistory.length;
   const totalMinutes = Math.round(
     sessionHistory.reduce((sum, entry) => sum + entry.duration, 0) / 60
@@ -38,7 +37,6 @@ export const StatsModal: React.FC<Props> = ({ onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         
         <header className="modal-header">
-          {/* GÜNCELLEME: İngilizce */}
           <h2>Statistics</h2>
           <button className="icon-button" onClick={onClose} aria-label="Close statistics">
             <X size={24} />
@@ -48,12 +46,10 @@ export const StatsModal: React.FC<Props> = ({ onClose }) => {
         <div className="stats-container">
           {totalCompletedCount === 0 ? (
             <div className="empty-state">
-              {/* GÜNCELLEME: İngilizce */}
               <p>No focus sessions completed yet.</p>
             </div>
           ) : (
             <div className="stats-grid">
-              {/* GÜNCELLEME: İngilizce */}
               <div className="stat-card">
                 <h3>Completed Today</h3>
                 <span className="stat-value">{todayCompletedCount}</span>
